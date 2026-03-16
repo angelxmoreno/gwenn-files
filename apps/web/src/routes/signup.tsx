@@ -2,13 +2,16 @@ import { createRoute, useNavigate, Link, useSearch } from '@tanstack/react-route
 import { useState, useEffect } from 'react'
 import { useMutation, useQuery } from '@tanstack/react-query'
 import { Music, Mail, Lock, User } from 'lucide-react'
-import { z } from 'zod'
 import { RootRoute } from './__root'
 import { auth, invites } from '../lib/api'
 import { useAuthStore } from '../stores/auth.store'
 
-const signupSearchSchema = z.object({
-  token: z.string().optional(),
+interface SignupSearch {
+  token?: string
+}
+
+const signupSearchSchema = (search: Record<string, unknown>): SignupSearch => ({
+  token: typeof search['token'] === 'string' ? search['token'] : undefined,
 })
 
 function SignupPage() {

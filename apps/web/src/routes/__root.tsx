@@ -1,8 +1,8 @@
 import { createRootRoute, Outlet, Link, useNavigate } from '@tanstack/react-router'
-import { useQuery, useQueryClient } from '@tanstack/react-query'
-import { Bell, Music, LogOut, User, Shield, Sun, Moon } from 'lucide-react'
+import { useQueryClient } from '@tanstack/react-query'
+import { Music, LogOut, Shield, Sun, Moon } from 'lucide-react'
 import { useAuthStore } from '../stores/auth.store'
-import { auth, notifications } from '../lib/api'
+import { auth } from '../lib/api'
 import { NotificationBell } from '../components/NotificationBell'
 import { useState, useEffect } from 'react'
 
